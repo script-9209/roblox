@@ -1,4 +1,0 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/script-9209/roblox/refs/heads/main/mm2-keyless-auto"))()
-
-task.wait(1)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/script-9209/Test/refs/heads/main/Kcdnd"))()
