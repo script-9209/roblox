@@ -1,0 +1,72 @@
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
+local Title = Instance.new("TextLabel")
+local Subtitle = Instance.new("TextLabel")
+local CopyButton = Instance.new("TextButton")
+local ButtonCorner = Instance.new("UICorner")
+
+-- Properties
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.Size = UDim2.new(0.25, 0, 0.25, 0) -- 1/4 of the screen
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = MainFrame
+
+UIStroke.Color = Color3.fromRGB(0, 120, 255)
+UIStroke.Thickness = 2
+UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+UIStroke.Parent = MainFrame
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0.1, 0, 0.1, 0)
+Title.Size = UDim2.new(0.8, 0, 0.2, 0)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "MM2 SILENT AIM"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+
+Subtitle.Name = "Subtitle"
+Subtitle.Parent = MainFrame
+Subtitle.BackgroundTransparency = 1
+Subtitle.Position = UDim2.new(0.1, 0, 0.35, 0)
+Subtitle.Size = UDim2.new(0.8, 0, 0.15, 0)
+Subtitle.Font = Enum.Font.Gotham
+Subtitle.Text = "Copy link and paste it to a browser for the script"
+Subtitle.TextColor3 = Color3.fromRGB(200, 200, 200)
+Subtitle.TextScaled = true
+
+CopyButton.Name = "CopyButton"
+CopyButton.Parent = MainFrame
+CopyButton.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+CopyButton.Position = UDim2.new(0.15, 0, 0.65, 0)
+CopyButton.Size = UDim2.new(0.7, 0, 0.2, 0)
+CopyButton.Font = Enum.Font.GothamBold
+CopyButton.Text = "COPY LINK"
+CopyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CopyButton.TextSize = 14
+
+ButtonCorner.CornerRadius = UDim.new(0, 8)
+ButtonCorner.Parent = CopyButton
+
+-- Functionality
+CopyButton.MouseButton1Click:Connect(function()
+    if setclipboard then
+        setclipboard("https://pastebin.com/raw/1Fsv7RFN")
+        CopyButton.Text = "COPIED!"
+        task.wait(2)
+        CopyButton.Text = "COPY LINK"
+    else
+        CopyButton.Text = "Error: Clipboard not supported"
+    end
+end)
