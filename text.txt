@@ -42,7 +42,7 @@ Subtitle.BackgroundTransparency = 1
 Subtitle.Position = UDim2.new(0.1, 0, 0.35, 0)
 Subtitle.Size = UDim2.new(0.8, 0, 0.15, 0)
 Subtitle.Font = Enum.Font.Gotham
-Subtitle.Text = "Copy link and paste it to a browser for the script"
+Subtitle.Text = "Join Discord Community for the script!"
 Subtitle.TextColor3 = Color3.fromRGB(200, 200, 200)
 Subtitle.TextScaled = true
 
@@ -62,7 +62,7 @@ ButtonCorner.Parent = CopyButton
 -- Functionality
 CopyButton.MouseButton1Click:Connect(function()
     if setclipboard then
-        setclipboard("https://pastebin.com/raw/1Fsv7RFN")
+        setclipboard("https://discord.gg/WSbh3sQ863")
         CopyButton.Text = "COPIED!"
         task.wait(2)
         CopyButton.Text = "COPY LINK"
