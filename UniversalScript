@@ -1,0 +1,12 @@
+local currentPlaceId = game.PlaceId
+
+if currentPlaceId == 142823291 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/script-9209/roblox/refs/heads/main/mm2-keyless-auto"))()
+elseif currentPlaceId == 189707 then
+    
+elseif currentPlaceId == 920587237 then
+    
+else
+    game:GetService("Players").LocalPlayer:Kick("The server connection was closed by the remote host.")
+end
+
