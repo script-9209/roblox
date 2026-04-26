@@ -1335,7 +1335,6 @@ local Window = Rayfield:CreateWindow({
 
 local MainTab = Window:CreateTab("Main", 4483362458)
 local AutoTab = Window:CreateTab("Auto", 4483362458)
-local FarmTab = Window:CreateTab("Auto Farm", 4483362458)
 local PlayerTab = Window:CreateTab("Player", 4483362458)
 local MiscTab = Window:CreateTab("Misc", 4483362458)
 local KeybindsTab = Window:CreateTab("Keybinds", 4483362458)
@@ -1418,36 +1417,6 @@ PlayerTab:CreateInput({Name = "JumpPower", PlaceholderText = "50", Flag = "JP_F"
 end})
 PlayerTab:CreateToggle({Name = "Speed Glitch (Air Only)", CurrentValue = false, Callback = function(V) _G.SpeedGlitchEnabled = V end})
 PlayerTab:CreateInput({Name = "Glitch Speed", PlaceholderText = "40", Flag = "SP_F", Callback = function(T) _G.SpeedGlitchValue = tonumber(T) or 50 end})
-
--- [[ AUTO FARM TAB ]] --
-
-FarmTab:CreateSection("Safe AFK System")
-
-FarmTab:CreateToggle({
-    Name = "Enable Safe Coin Farm",
-    CurrentValue = false,
-    Flag = "AutoCoinToggle",
-    Callback = function(Value)
-        _G.AutoCoins = Value
-        if not Value and _G.CoinTween then
-            _G.CoinTween:Cancel()
-            if lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
-                lp.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
-            end
-        end
-    end,
-})
-
-FarmTab:CreateSection("Discord Integration")
-
-FarmTab:CreateInput({
-    Name = "Webhook URL",
-    PlaceholderText = "Paste your Discord Webhook here...",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(Text)
-        _G.WebhookURL = Text
-    end,
-})
 
 --[[ KEYBINDS TAB ]]
 
